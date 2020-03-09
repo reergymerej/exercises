@@ -1,14 +1,13 @@
 // https://www.codewars.com/kata/52597aa56021e91c93000cb0/train/javascript
 const moveZeros = (arr) => {
-  const putAtEnd = []
-
-  const putAtFront = arr.filter(x => {
-    const moveToEnd = x === 0
-    if (moveToEnd) {
-      putAtEnd.push(x)
+  const result = []
+  let i = 0
+  arr.forEach(x => {
+    const insertLeft = x !== 0
+    result.splice(i, 0, x)
+    if (insertLeft) {
+      i++
     }
-    return !moveToEnd
   })
-
-  return putAtFront.concat(putAtEnd)
+  return result
 }
